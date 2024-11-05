@@ -41,7 +41,7 @@
         }
 
         .buttonContainer {
-            margin-top: 20px;
+            margin-top: 10px;
             display: flex;
             /* Ensure buttons are always displayed */
             align-items: center;
@@ -77,8 +77,6 @@
 
 <body>
 
-    <div class="container" id="container"></div>
-
 	<div class="textContainer">
         <p>Is it possible to fill the latin square?<p>
     </div>
@@ -86,14 +84,18 @@
     <div class="buttonContainer">
         <button id="yesButton">Yes</button>
         <button id="noButton">No</button>
-		
-		<p id="message"></p>
     </div>
+	
+	<div class="buttonContainer">
+		<p id="message"></p>
+	</div>
 	
 	<div class="buttonContainer">
         <button id="solveButton">Solve</button>
         <button id="resetButton">Reset</button>
     </div>
+	
+	<div class="container" id="container"></div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -135,12 +137,28 @@
 						}
 					}
 				}
+				let solvable = 0;
+				if (k == 1) {
+					solvable = 1;
+				} else if (k == 3) {
+					if (partition[0] == partition[1] && partition[0] == partition[2]) {
+						solvable = 1;
+					}
+				} else if (k == 4) {
+					if (partition[0] == partition[1] && partition[0] == partition[2]) {
+						solvable = 1;
+					} else if (partition[1] == partition[2] && partition[1] == partition[3]) {
+						solvable = 1;
+					}
+				} else if (k == 5) {
+					solvable = 1;
+				}
 				//const puzzle = [
                 //    [1,0,0],
                 //    [0,2,0],
 				//	[0,0,3]
                 //];
-                return puzzle;
+                return [puzzle,solvable];
             }
 
             // Function to solve the Sudoku puzzle
@@ -228,10 +246,11 @@
             }
 
             // Initialize puzzle
-            let initialPuzzle = generateRandomSudoku();
+            let [initialPuzzle,solvable] = generateRandomSudoku();
 			let n = initialPuzzle.length;
             let puzzle = JSON.parse(JSON.stringify(initialPuzzle));
             let solvedPuzzle = [];
+			document.getElementById("message").innerHTML = ''
 
             // Function to solve the puzzle
             function solvePuzzle() {
@@ -241,7 +260,7 @@
 
             // Function to reset the puzzle
             function resetPuzzle() {
-                initialPuzzle = generateRandomSudoku();
+                [initialPuzzle,solvable] = generateRandomSudoku();
 				n = initialPuzzle.length;
                 puzzle = JSON.parse(JSON.stringify(initialPuzzle));
                 solvedPuzzle = [];
@@ -252,8 +271,20 @@
 			// Function if yes clicked
 			function yesClick() {
 				solvedPuzzle = solveSudoku(puzzle,n);
-				if (solvedPuzzle !== puzzle) {
-				document.getElementById("message").innerHTML = 'Correct!';
+				if (solvable == 1) {
+					document.getElementById("message").innerHTML = 'Correct!';
+				} else {
+					document.getElementById("message").innerHTML = '*Buzzer noise*';
+				}
+			}
+			
+			// Function if yes clicked
+			function noClick() {
+				solvedPuzzle = solveSudoku(puzzle,n);
+				if (solvable == 0) {
+					document.getElementById("message").innerHTML = 'Correct!';
+				} else {
+					document.getElementById("message").innerHTML = '*Buzzer noise*';
 				}
 			}
 
@@ -267,6 +298,8 @@
                 .addEventListener("click", resetPuzzle);
 			document.getElementById("yesButton")
                 .addEventListener("click", yesClick);
+			document.getElementById("noButton")
+                .addEventListener("click", noClick);
         });
     </script>
 
