@@ -78,24 +78,14 @@
 <body>
 
 	<div class="textContainer">
-        <p>Is it possible to fill the latin square?<p>
-    </div>
-
-    <div class="buttonContainer">
-        <button id="yesButton">Yes</button>
-        <button id="noButton">No</button>
-    </div>
-	
-	<div class="buttonContainer">
-		<p id="message"></p>
-	</div>
-	
-	<div class="buttonContainer">
-        <button id="solveButton">Solve</button>
-        <button id="resetButton">Reset</button>
+        <p>Is it possible to fill these latin squares?<p>
     </div>
 	
 	<div class="container" id="container"></div>
+	
+	<div class="textContainer">
+        <p>You are on the "ACC talk" version of this page. For unlimited squares (with solve options) click:<p>
+    </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -246,9 +236,12 @@
             }
 
             // Initialize puzzle
-            let [initialPuzzle,solvable] = generateRandomSudoku();
-			let n = initialPuzzle.length;
-            let puzzle = JSON.parse(JSON.stringify(initialPuzzle));
+            let [initialPuzzle1,solvable] = generateRandomSudoku();
+			let n = initialPuzzle1.length;
+            let puzzle1 = JSON.parse(JSON.stringify(initialPuzzle1));
+			let [initialPuzzle2,solvable] = generateRandomSudoku();
+			let n = initialPuzzle2.length;
+            let puzzle2 = JSON.parse(JSON.stringify(initialPuzzle2));
             let solvedPuzzle = [];
 			document.getElementById("message").innerHTML = ''
 
@@ -287,7 +280,8 @@
 			}
 
             // Initial puzzle creation
-            createSudokuGrid(puzzle,puzzle);
+            createSudokuGrid(puzzle1,puzzle1);
+			createSudokuGrid(puzzle2,puzzle2);
 
             // Attach event listeners to buttons
             document.getElementById("solveButton")
