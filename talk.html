@@ -16,7 +16,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 50px;
+            margin-top: 20px;
         }
 
         .row {
@@ -78,18 +78,23 @@
 <body>
 
 	<div class="textContainer">
-        <p>Is it possible to fill these latin squares?<p>
+        <p>Is it possible to fill these latin squares?<br />
+		(Click into a cell to enter a number)<p>
     </div>
 	
 	<div class="container" id="container"></div>
 	
+	<div class="container" id="container2"></div>
+	
 	<div class="textContainer">
-        <p>You are on the "ACC talk" version of this page. For unlimited squares (with solve options) click:<p>
+        <p>You are on the "ACC talk" version of this page. For unlimited squares (with solve options)&nbsp;<p>
+		<a href="https://tarakemp.github.io./">click here.</a>
     </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const container = document.getElementById("container");
+			const container2 = document.getElementById("container2");
 
             // Function to generate a random Sudoku puzzle
             function generateRandomSudoku() {
@@ -149,6 +154,67 @@
 				//	[0,0,3]
                 //];
                 return [puzzle,solvable];
+            }
+			
+			// Function to generate a random Sudoku puzzle
+            function generateTalkSudoku() {
+                // Placeholder function for generating a random puzzle (9x9)
+				const partition = [3,2,1,1,1];
+				let n = 8;
+				let k = 5;
+				
+                const puzzle = new Array();
+				for (let i = 0; i < n; i++) {
+					puzzle.push(new Array(n).fill(0));
+				}
+				const upto = new Array();
+				for (let i = 0; i < k; i++) {
+					let sum = 0;
+					for (let j = 0; j < i; j++) {
+					  sum += partition[j];
+					}
+					upto.push(sum);
+				}
+				const subsquares = new Array();
+				for (let v = 0; v < k; v++) {
+					for (let i = 0; i < partition[v]; i++) {
+						for (let j = 0; j < partition[v]; j++) {
+							puzzle[upto[v]+i][upto[v]+j] = (i+j) % partition[v] + 1;
+							puzzle[upto[v]+i][upto[v]+j] += upto[v];
+							subsquares.push([upto[v]+i,upto[v]+j]);
+						}
+					}
+				}
+				
+				const partition2 = [3,2,1,1];
+				let n2 = 7;
+				let k2 = 4;
+				
+                const puzzle2 = new Array();
+				for (let i = 0; i < n2; i++) {
+					puzzle2.push(new Array(n2).fill(0));
+				}
+				
+				const upto2 = new Array();
+				for (let i = 0; i < k2; i++) {
+					let sum2 = 0;
+					for (let j = 0; j < i; j++) {
+					  sum2 += partition2[j];
+					}
+					upto2.push(sum2);
+				}
+				const subsquares2 = new Array();
+				for (let v = 0; v < k2; v++) {
+					for (let i = 0; i < partition2[v]; i++) {
+						for (let j = 0; j < partition2[v]; j++) {
+							puzzle2[upto2[v]+i][upto2[v]+j] = (i+j) % partition2[v] + 1;
+							puzzle2[upto2[v]+i][upto2[v]+j] += upto2[v];
+							subsquares2.push([upto2[v]+i,upto2[v]+j]);
+						}
+					}
+				}
+				
+                return [puzzle,puzzle2];
             }
 
             // Function to solve the Sudoku puzzle
@@ -213,8 +279,8 @@
             }
 
             // Function to create the Sudoku puzzle grid
-            function createSudokuGrid(puzzle,initpuzzle) {
-                container.innerHTML = '';
+            function createSudokuGrid(puzzle,initpuzzle,contain) {
+                contain.innerHTML = '';
                 puzzle.forEach((row, rowIndex) => {
                     const rowElement = document.createElement('div');
                     rowElement.classList.add('row');
@@ -231,19 +297,20 @@
 							cellElement.classList.add('lightBackground');
 						}
                     });
-                    container.appendChild(rowElement);
+                    contain.appendChild(rowElement);
                 });
             }
 
             // Initialize puzzle
-            let [initialPuzzle1,solvable] = generateRandomSudoku();
-			let n = initialPuzzle1.length;
+            //let [initialPuzzle1,solvable] = generateRandomSudoku();
+			let [initialPuzzle1,initialPuzzle2] = generateTalkSudoku();
+			//let n = initialPuzzle1.length;
             let puzzle1 = JSON.parse(JSON.stringify(initialPuzzle1));
-			let [initialPuzzle2,solvable] = generateRandomSudoku();
-			let n = initialPuzzle2.length;
+			//let [initialPuzzle2,solvable2] = generateRandomSudoku();
+			//let n2 = initialPuzzle2.length;
             let puzzle2 = JSON.parse(JSON.stringify(initialPuzzle2));
-            let solvedPuzzle = [];
-			document.getElementById("message").innerHTML = ''
+            //let solvedPuzzle = [];
+			//document.getElementById("message").innerHTML = ''
 
             // Function to solve the puzzle
             function solvePuzzle() {
@@ -280,18 +347,9 @@
 			}
 
             // Initial puzzle creation
-            createSudokuGrid(puzzle1,puzzle1);
-			createSudokuGrid(puzzle2,puzzle2);
+            createSudokuGrid(puzzle1,puzzle1,container);
+			createSudokuGrid(puzzle2,puzzle2,container2);
 
-            // Attach event listeners to buttons
-            document.getElementById("solveButton")
-                .addEventListener("click", solvePuzzle);
-            document.getElementById("resetButton")
-                .addEventListener("click", resetPuzzle);
-			document.getElementById("yesButton")
-                .addEventListener("click", yesClick);
-			document.getElementById("noButton")
-                .addEventListener("click", noClick);
         });
     </script>
 
