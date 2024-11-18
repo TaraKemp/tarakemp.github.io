@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,
                                    initial-scale=1.0">
-    <title>Sudoku Puzzle</title>
+    <title>Latin Square Puzzle</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -71,6 +71,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+			flex-direction: column;
         }
     </style>
 </head>
@@ -78,8 +79,8 @@
 <body>
 
 	<div class="textContainer">
-        <p>Is it possible to fill these latin squares?<br />
-		(Click into a cell to enter a number)<p>
+        <h1>Is it possible to fill these latin squares?</h1>
+		<p>(Click into a cell to enter a number)<p>
     </div>
 	
 	<div class="container" id="container"></div>

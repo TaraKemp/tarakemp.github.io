@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Tara Kemp</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* header */
+.header {
+  padding: 80px 200px 80px 200px; /* some padding */
+  background: #1abc9c; /* green background */
+  display: flex;
+  flex-wrap: wrap;
+  background-image: url("Lines.png");
+  background-color: #cccccc;
+}
+
+/* Increase the font size of the <h1> element */
+.header h1 {
+  font-size: 40px;
+}
+
+/* Style the top navigation bar */
+.navbar {
+  overflow: hidden; /* Hide overflow */
+  background-color: #333; /* Dark background color */
+}
+
+/* Style the navigation bar links */
+.navbar a {
+  float: left; /* Make sure that the links stay side-by-side */
+  display: block; /* Change the display to block, for responsive reasons (see below) */
+  color: white; /* White text color */
+  text-align: center; /* Center the text */
+  padding: 14px 20px; /* Add some padding */
+  text-decoration: none; /* Remove underline */
+}
+
+/* Right-aligned link */
+.navbar a.right {
+  float: right; /* Float a link to the right */
+}
+
+/* Change color on hover/mouse-over */
+.navbar a:hover {
+  background-color: #ddd; /* Grey background color */
+  color: black; /* Black text color */
+}
+
+/* Ensure proper sizing */
+* {
+  box-sizing: border-box;
+}
+
+/* Column container */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.colHeadIM {
+  flex: 20%;
+  text-align: left;
+  padding: 20px;
+}
+.colHeadText {
+  flex: 30%;
+  text-align: left;
+  padding: 20px;
+}
+.colHeadSquare {
+  flex: 45%;
+  text-align: center;
+  padding: 20px;
+}
+
+.spacer {
+  padding: 50px;
+}
+.green {
+	background: #01796F;
+}
+.blue {
+	background: #0892D0;
+}
+
+.block {
+  padding: 50px 200px 50px 200px; /* some padding */
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.blockTeach {
+  padding: 0px 200px 50px 200px; /* some padding */
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.colText {
+  flex: 60%;
+  text-align: left;
+  padding: 20px;
+}
+.colText2 {
+  flex: 40%;
+  text-align: left;
+  padding: 20px;
+}
+
+.colTeach {
+  flex: 100%;
+  text-align: center;
+}
+
+.big {
+  line-height: 1.8;
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+  .row {
+    flex-direction: column;
+  }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="navbar">
+  <a href="https://www.tarakemp.site/">Home</a>
+  <a href="https://www.tarakemp.site/about">About</a>
+  <a href="https://tarakemp.github.io./">Game</a>
+  <!--<a href="#" class="right">Link</a>-->
+</div>
+
+<div class="header">
+	<div class="colHeadIM">
+		<img src="TaraKemp.jpg" alt="Tara Kemp picture" width="270" height="360">
+	</div>
+	<div class="colHeadText">
+		<h1>Tara Kemp</h1>
+		<p>Hi! I'm a PhD student in mathematics at the University of Queensland.<br /><br />I am interested
+		in combinatorics, particularly design theory. My current research is on latin squares and latin 
+		hypercubes, and my advisors are James Lefevre and Diane Donovan. <br /><br />Email:		t.kemp(at)uq.net.au</p>
+	</div>
+	<div class="colHeadSquare">
+		<h2>Can you fill these latin squares?</h2>
+		
+		<img src="Squares.png" alt="latin squares" width="500">
+	</div>  
+</div>
+
+<div class="spacer blue">
+</div>
+
+<div class="block">
+	<div class="colText">
+		<h2> Papers </h2>
+		<ul class="big">
+		<li><a href="https://doi.org/10.1002/jcd.21960">Latin squares with five disjoint subsquares</a></li>
+		</ul>
+		<p>More available on <a href="https://arxiv.org/a/0009-0001-7371-8705.html">arXiv</a></li></p>
+		
+		<h2> Talks </h2>
+		<ul class="big">
+		<li>Latin hypercubes realizing integer partitions (30th British Combinatorial Conference, Jul. 2024)</li>
+		<li>Latin hypercubes realizing integer partitions (UQ Maths Colloquium,  Mar. 2024)</li>
+		<li>Realizing partitions as latin squares and cubes (Plant Success Webinar Series, Feb. 2024)</li>
+		<li>Realizing partitions as latin squares and cubes (PhD Confirmation, Feb. 2024)</li>
+		<li>Latin hypercubes realizing integer partitions (67th meeting of AustMS,  Dec. 2023)</li>
+		<li>Sudoku, but in more dimensions (UQ Graduate Seminar, Oct. 2023)</li>
+		<li>Fuchs' Problem on Latin Squares and Cubes (UQ SMP International Women in Mathematics Day, May 2023)</li>
+		<li>Extensions of Pick's Theorem  (UQ MSS Maths Talk, Aug. 2022)</li>
+		</ul>
+	</div>
+	<div class="colText2">
+		<h2> Posters </h2>
+		<ul class="big">
+		<li>Latin squares with five disjoint subsquares (Poster Day 2024)</li>
+		<li>Latin hypercubes realizing integer partitions (Poster Day 2023)</li>
+		</ul>
+		
+		<h2> Awards </h2>
+		<ul class="big">
+		<li>UQ SMP Tutor Award (2024)</li>
+		<li>AustMS Bernhard Neumann Prize (2023)</li>
+		<li>UQ SMP Poster Day First Prize (2023)</li>
+		<li>UQ SMP Tutor Award (2022)</li>
+		</ul>
+		
+		<img src="Square.png" alt="latin square" width="200">
+	</div>
+</div>
+
+<div class="spacer green">
+</div>
+
+<div class="block">
+	<div class="colTeach">
+	<h2> Teaching </h2>
+	<p>I am currently a tutor at the University of Queensland.  Here is a list of the courses I have tutored.</p>
+	</div>
+</div>
+<div class="blockTeach">
+	<div class="colText2">
+	<img src="Cube.png" alt="latin cube" width="350">
+	</div>
+	<div class="colText">
+		<p class="big">2024 Sem. 2: MATH1061 (supertutor, lecture assistant), MATH2302 (supertutor)<br />
+		2024 Sem. 1: MATH1061 (supertutor, lecture assistant, lecturer)<br />
+		2023 Sem. 2: MATH1061 (lecture assistant), MATH2302 (supertutor)<br />
+		2023 Sem. 1: MATH1061 (supertutor, lecture assistant)<br />
+		2022 Sem. 2: MATH1061 (lecture assistant), MATH2302 (supertutor), MATH3301<br />
+		2022 Sem. 1: MATH1061 (supertutor, lecture assistant)<br />
+		2021 Sem. 2: MATH1061, MATH1052<br />
+		2021 Sem. 1: MATH1061, MATH1051<br />
+		2020 Sem. 2: MATH1061, MATH1052<br />
+		2020 Sem. 1: MATH1061 </p>
+	</div>
+</div>
+
+<div class="spacer blue">
+</div>
+
+</body>
+</html>
