@@ -9,14 +9,21 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* header */
-.header {
-  padding: 80px 200px 80px 200px; /* some padding */
-  background: #1abc9c; /* green background */
-  display: flex;
-  flex-wrap: wrap;
+.backIM {
   background-image: url("Lines.png");
   background-color: #cccccc;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* header */
+.header {
+  padding: 80px 20px 80px 20px; /* some padding */
+  display: flex;
+  flex-wrap: wrap;
+  width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Increase the font size of the <h1> element */
@@ -89,17 +96,23 @@ body {
 }
 
 .block {
-  padding: 50px 200px 50px 200px; /* some padding */
+  padding: 50px 20px 50px 20px; /* some padding */
   display: flex;
   flex-wrap: wrap;
   text-align: center;
+  width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .blockTeach {
-  padding: 0px 200px 50px 200px; /* some padding */
+  padding: 0px 20px 50px 20px; /* some padding */
   display: flex;
   flex-wrap: wrap;
   text-align: center;
+  width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .colText {
@@ -124,7 +137,13 @@ body {
 
 /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 700px) {
-  .row {
+  .header {
+    flex-direction: column;
+  }
+  .block {
+    flex-direction: column;
+  }
+  .blockTeach {
     flex-direction: column;
   }
 }
@@ -147,6 +166,7 @@ body {
   <!--<a href="#" class="right">Link</a>-->
 </div>
 
+<div class="backIM">
 <div class="header">
 	<div class="colHeadIM">
 		<img src="TaraKemp.jpg" alt="Tara Kemp picture" width="270" height="360">
@@ -162,6 +182,7 @@ body {
 		
 		<img src="Squares.png" alt="latin squares" width="500">
 	</div>  
+</div>
 </div>
 
 <div class="spacer blue">
