@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 <head>
     <meta charset="UTF-8">
@@ -99,24 +101,38 @@
 	  background-color: #ddd; /* Grey background color */
 	  color: black; /* Black text color */
 	}
-    </style>
+
+.dropdown {
+  float: right;
+  display: block;
+  padding: 14px 20px;
+}
+	
+</style>
 </head>
 
 <body>
 <div class="navbar">
-  <a href="https://www.tarakemp.net/">Home</a>
-  <a href="https://www.tarakemp.net/about">About</a>
-  <a href="https://www.tarakemp.net/game">Game</a>
+  <a href="https://www.tarakemp.net/"><span lang="en">Home</span><span lang="eo">Hejmo</span></a>
+  <a href="https://www.tarakemp.net/about"><span lang="en">About</span><span lang="eo">Pri mi</span></a>
+  <a href="https://www.tarakemp.net/game"><span lang="en">Game</span><span lang="eo">Ludo</span></a>
   <!--<a href="#" class="right">Link</a>-->
+  <div class="dropdown">
+	  <select id="lang-switch">
+	  <option value="en">en</option>
+	  <option value="eo">eo</option>
+	  </select>
+  </div>
 </div>
 
 	<div class="textContainer">
-        <p>Is it possible to fill the latin square?<p>
+        <p lang="en">Is it possible to fill the latin square?<p>
+		<p lang="eo">Ĉu oni povas plenigi la latinan kvadraton?<p>
     </div>
 
     <div class="buttonContainer">
-        <button id="yesButton">Yes</button>
-        <button id="noButton">No</button>
+        <button id="yesButton"><span lang="en">Yes</span><span lang="eo">Jes</span></button>
+        <button id="noButton"><span lang="en">No</span><span lang="eo">Ne</span></button>
     </div>
 	
 	<div class="buttonContainer">
@@ -124,14 +140,15 @@
 	</div>
 	
 	<div class="buttonContainer">
-        <button id="solveButton">Solve</button>
-        <button id="resetButton">Reset</button>
+        <button id="solveButton"><span lang="en">Solve</span><span lang="eo">Solvi</span></button>
+        <button id="resetButton"><span lang="en">New</span><span lang="eo">Nova</span></button>
     </div>
 	
 	<div class="container" id="container"></div>
 	
 	<div class="textContainer">
-        <p>This page is still in-progress. Feedback is appreciated :D<p>
+        <p lang="en">This page is still in-progress. Feedback is appreciated :D<p>
+		<p lang="eo">Ĉi tiu retpaĝo ne estas finita. Retrokuplo estas volata :D<p>
     </div>
 
     <script>
@@ -337,6 +354,26 @@
                 .addEventListener("click", noClick);
         });
     </script>
+	
+
+<script>
+	$('[lang="eo"]').hide();
+
+	$('#lang-switch').change(function () {
+	  var lang = $(this).val();
+	  $('[lang]').hide();
+	  switch (lang) {
+		case 'en': 
+		  $('[lang="en"]').show();
+		  break;
+		case 'eo':
+		  $('[lang="eo"]').show();
+		  break;
+		default:
+		  $('[lang="en"]').show();
+	  }
+	});
+</script>
 
 </body>
 

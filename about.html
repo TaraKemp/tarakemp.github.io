@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
 <title>Tara Kemp - About</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -173,32 +175,50 @@ body {
     width: 100%;
   }
 }
+
+.dropdown {
+  float: right;
+  display: block;
+  padding: 14px 20px;
+}
+
 </style>
 </head>
 <body>
 
 <div class="navbar">
-  <a href="https://www.tarakemp.net/">Home</a>
-  <a href="https://www.tarakemp.net/about">About</a>
-  <a href="https://www.tarakemp.net/game">Game</a>
+  <a href="https://www.tarakemp.net/"><span lang="en">Home</span><span lang="eo">Hejmo</span></a>
+  <a href="https://www.tarakemp.net/about"><span lang="en">About</span><span lang="eo">Pri mi</span></a>
+  <a href="https://www.tarakemp.net/game"><span lang="en">Game</span><span lang="eo">Ludo</span></a>
   <!--<a href="#" class="right">Link</a>-->
+  <div class="dropdown">
+	  <select id="lang-switch">
+	  <option value="en">en</option>
+	  <option value="eo">eo</option>
+	  </select>
+  </div>
 </div>
 
 <div class="headerBG">
 <div class="headerAbout">
-	<h1> Maths is not my only interest! </h1>
-	<p> My research and teaching are extremely important to me, but in my spare time I enjoy a range of hobbies. </p>
+	<h1><span lang="en"> Maths is not my only interest! </span><span lang="eo"> Matematiko ne estas la sola afero kiu interesas min! </span></h1>
+	<p lang="en"> My research and teaching are extremely important to me, but in my spare time I enjoy a range of hobbies. </p>
+	<p lang="eo"> Mia laboro kaj instruado estas tre gravaj al mi, sed en mia libera tempo mi ĝuas multajn hobiojn. </p>
 </div>
 </div>
 
 <div class="blockAbout">
 	<ul class="big">
-	<li>I speak Esperanto and am a member of the Brisbane Esperanto Society (since 2020)</li>
-	<li>Member of the Queensland Mini Car Club (since 2018) </li>
+	<li lang="en">I speak Esperanto and am a member of the Brisbane Esperanto Society (since 2020)</li>
+	<li lang="eo">Mi parolas esperanton kaj mi estas ano de la Brisbana esperanto societo (ekde 2020)</li>
+	<li lang="en">Member of the Queensland Mini Car Club (since 2018) </li>
+	<li lang="eo">Ano de la Queensland Mini Car Club (ekde 2018) </li>
 		<ul>
-		<li>I repair my own 1968 Morris Mini-Matic </li>
+		<li lang="en">I repair my own 1968 Morris Mini-Matic </li>
+		<li lang="eo">Mi riparas mian 1968 Morris Mini-Matic </li>
 		</ul>
-	<li>I collect clocks, sewing machines, typewriters and other miscellaneous machines </li>
+	<li lang="en">I collect clocks, sewing machines, typewriters and other miscellaneous machines </li>
+	<li lang="eo">Mi kolektas horloĝojn, kudromaŝinojn, skribmaŝinojn kaj aliajn maŝinojn </li>
 	</ul>
 </div>
 
@@ -211,6 +231,26 @@ body {
 
 <div class="spacer blue">
 </div>
+
+
+<script>
+	$('[lang="eo"]').hide();
+
+	$('#lang-switch').change(function () {
+	  var lang = $(this).val();
+	  $('[lang]').hide();
+	  switch (lang) {
+		case 'en': 
+		  $('[lang="en"]').show();
+		  break;
+		case 'eo':
+		  $('[lang="eo"]').show();
+		  break;
+		default:
+		  $('[lang="en"]').show();
+	  }
+	});
+</script>
 
 </body>
 </html>
