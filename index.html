@@ -11,6 +11,23 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+
+
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'photo photo text text square square square';
+  gap: 10px;
+  padding: 10px;
+  width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+
 .backIM {
   background-image: url("Lines.png");
   background-color: #cccccc;
@@ -72,16 +89,19 @@ body {
 }
 
 .colHeadIM {
+  grid-area: photo;
   flex: 20%;
   text-align: left;
   padding: 20px;
 }
 .colHeadText {
+  grid-area: text;
   flex: 30%;
   text-align: left;
   padding: 20px;
 }
 .colHeadSquare {
+  grid-area: square;
   flex: 45%;
   text-align: center;
   padding: 20px;
@@ -138,18 +158,30 @@ body {
 }
 
 /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 700px) {
+@media only screen and (max-width: 600px) {
+  .grid-container {
+  grid-template-areas:
+	'photo'
+	'text'
+	'square';
+  width: 600px;
+}
+  
   .header {
     flex-direction: column;
-	width: 700px;
+	width: 600px;
   }
   .block {
     flex-direction: column;
-	width: 700px;
+	width: 600px;
   }
   .blockTeach {
     flex-direction: column;
-	width: 700px;
+	width: 600px;
+  }
+  .colTeach {
+    flex-direction: column;
+	width: 600px;
   }
   .colHeadIM {width: 100%;}
   .colHeadSquare {width: 100%;}
@@ -232,6 +264,7 @@ input:checked + .slider:before {
   padding: 14px 20px;
 }
 
+
 </style>
 </head>
 <body>
@@ -250,7 +283,7 @@ input:checked + .slider:before {
 </div>
 
 <div class="backIM">
-<div class="header">
+<div class="grid-container">
 	<div class="colHeadIM">
 		<img src="TaraKemp.jpg" alt="Tara Kemp picture" width="270" height="360">
 	</div>
