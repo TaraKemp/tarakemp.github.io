@@ -157,6 +157,11 @@ body {
   line-height: 1.8;
 }
 
+.responsive {
+  width: 500;
+  height: auto;
+	}
+
 /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
 @media only screen and (max-width: 600px) {
   .grid-container {
@@ -187,9 +192,10 @@ body {
   .colHeadSquare {width: 100%;}
   .colHeadText {width: 100%;}
   
-  .navbar a {
-    width: 600px;
-  }
+  .responsive {
+  width: 100%;
+  height: auto;
+	}
 }
 
 /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
@@ -302,7 +308,7 @@ input:checked + .slider:before {
 		<h2 lang="en">Can you fill these latin squares?</h2>
 		<h2 lang="eo">Ĉu vi povas plenigi la kvadratojn?</h2>
 		
-		<img src="Squares.png" alt="latin squares" width="500">
+		<img src="Squares.png" alt="latin squares" class="responsive">
 	</div>  
 </div>
 </div>
