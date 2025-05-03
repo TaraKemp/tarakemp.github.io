@@ -101,6 +101,21 @@
 	  background-color: #ddd; /* Grey background color */
 	  color: black; /* Black text color */
 	}
+	
+	.box1 {
+	background-color: #21c2b4;
+	width: 500px;
+	margin-left: auto;
+    margin-right: auto;
+	}
+	
+	.box2 {
+	background-color: #80c8e8;
+	width: 400px;
+	margin-left: auto;
+    margin-right: auto;
+	padding: 5px 0px 0px 0px;
+	}
 
 .dropdown {
   float: right;
@@ -125,6 +140,7 @@
   </div>
 </div>
 
+	<div class="box1">
 	<div class="textContainer">
         <p lang="en">Is it possible to fill the latin square?<p>
 		<p lang="eo">Ĉu oni povas plenigi la latinan kvadraton?<p>
@@ -138,18 +154,28 @@
 	<div class="buttonContainer">
 		<p id="message"></p>
 	</div>
+	</div>
 	
+	<div class="box2">
 	<div class="buttonContainer">
         <button id="solveButton"><span lang="en">Solve</span><span lang="eo">Solvi</span></button>
         <button id="resetButton"><span lang="en">New</span><span lang="eo">Nova</span></button>
     </div>
 	
+	<div class="buttonContainer">
+		<p id="score"></p>
+	</div>
+	
+	</div>
+	
 	<div class="container" id="container"></div>
 	
+	<div class="box1">
 	<div class="textContainer">
         <p lang="en">This page is still in-progress. Feedback is appreciated :D<p>
 		<p lang="eo">Ĉi tiu retpaĝo ne estas finita. Retrokuplo estas volata :D<p>
     </div>
+	</div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -304,12 +330,17 @@
 			let n = initialPuzzle.length;
             let puzzle = JSON.parse(JSON.stringify(initialPuzzle));
             let solvedPuzzle = [];
-			document.getElementById("message").innerHTML = ''
+			document.getElementById("message").innerHTML = 'Beep boop';
+			document.getElementById("message").style.visibility = 'hidden';
+			let guessed = 0;
+			let score = 0;
+			document.getElementById("score").innerHTML = 'Score: '.concat(score);
 
             // Function to solve the puzzle
             function solvePuzzle() {
                 solvedPuzzle = solveSudoku(puzzle,n);
                 createSudokuGrid(solvedPuzzle,puzzle);
+				guessed = 1;
             }
 
             // Function to reset the puzzle
@@ -319,24 +350,40 @@
                 puzzle = JSON.parse(JSON.stringify(initialPuzzle));
                 solvedPuzzle = [];
                 createSudokuGrid(puzzle,puzzle);
-				document.getElementById("message").innerHTML = '';
+				document.getElementById("message").innerHTML = 'Ananaso';
+				document.getElementById("message").style.visibility = 'hidden';
+				guessed = 0;
             }
 			
 			// Function if yes clicked
 			function yesClick() {
+				if (guessed == 0) {
 				if (solvable == 1) {
 					document.getElementById("message").innerHTML = 'Correct!';
+					document.getElementById("message").style.visibility = 'visible';
+					score = score + 1;
+					document.getElementById("score").innerHTML = 'Score: '.concat(score);
 				} else {
 					document.getElementById("message").innerHTML = '*Buzzer noise*';
+					document.getElementById("message").style.visibility = 'visible';
+				}
+				guessed = 1;
 				}
 			}
 			
 			// Function if yes clicked
 			function noClick() {
+				if (guessed == 0) {
 				if (solvable == 0) {
 					document.getElementById("message").innerHTML = 'Correct!';
+					document.getElementById("message").style.visibility = 'visible';
+					score = score + 1;
+					document.getElementById("score").innerHTML = 'Score: '.concat(score);
 				} else {
 					document.getElementById("message").innerHTML = '*Buzzer noise*';
+					document.getElementById("message").style.visibility = 'visible';
+				}
+				guessed = 1;
 				}
 			}
 
