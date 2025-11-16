@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<title>Tara Kemp - About</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* header */
+.header {
+  padding: 80px 200px 80px 200px; /* some padding */
+  background: #1abc9c; /* green background */
+  color: white; /* white text color */
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Increase the font size of the <h1> element */
+.header h1 {
+  font-size: 40px;
+}
+
+/* Style the top navigation bar */
+.navbar {
+  overflow: hidden; /* Hide overflow */
+  background-color: #333; /* Dark background color */
+}
+
+/* Style the navigation bar links */
+.navbar a {
+  float: left; /* Make sure that the links stay side-by-side */
+  display: block; /* Change the display to block, for responsive reasons (see below) */
+  color: white; /* White text color */
+  text-align: center; /* Center the text */
+  padding: 14px 20px; /* Add some padding */
+  text-decoration: none; /* Remove underline */
+}
+
+/* Right-aligned link */
+.navbar a.right {
+  float: right; /* Float a link to the right */
+}
+
+/* Change color on hover/mouse-over */
+.navbar a:hover {
+  background-color: #ddd; /* Grey background color */
+  color: black; /* Black text color */
+}
+
+/* Ensure proper sizing */
+* {
+  box-sizing: border-box;
+}
+
+/* Column container */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.colHeadIM {
+  flex: 20%;
+  text-align: left;
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+.colHeadText {
+  flex: 30%;
+  text-align: left;
+  padding: 20px;
+}
+.colHeadSquare {
+  flex: 45%;
+  text-align: center;
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+.spacer {
+  padding: 50px;
+}
+.green {
+	background: #01796F;
+}
+.blue {
+	background: #0892D0;
+}
+
+.block {
+  padding: 50px 200px 50px 200px; /* some padding */
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.colText {
+  flex: 60%;
+  text-align: left;
+  padding: 20px;
+}
+.colText2 {
+  flex: 40%;
+  text-align: left;
+  padding: 20px;
+}
+
+.big {
+  line-height: 1.8;
+}
+
+.headerBG {
+  background: #01796F; /* green background */
+  color: white; /* white text color */
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.headerAbout {
+  padding: 80px 20px 50px 20px; /* some padding */
+  color: white; /* white text color */
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  flex-direction: column;
+}
+
+.blockAbout {
+  padding: 50px 20px 50px 20px; /* some padding */
+  display: flex;
+  flex-wrap: wrap;
+  text-align: left;
+  width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'turtle piper';
+  gap: 10px;
+  padding: 10px;
+  width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.AboutIMt {
+  grid-area: turtle;
+  padding: 10px 20px 50px 20px; /* some padding */
+  display: flex;
+  flex: 45%;
+  flex-wrap: wrap;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.AboutIMp {
+  grid-area: piper;
+  padding: 10px 20px 50px 20px; /* some padding */
+  display: flex;
+  flex: 45%;
+  flex-wrap: wrap;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.responsive {
+  width: 440px;
+  height: auto;
+	}
+
+#images img {
+    margin: 25px;
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+  .headerAbout {
+    flex-direction: column;
+	width: 100%;
+  }
+  .blockAbout {
+    flex-direction: column;
+	width: 100%;
+  }
+  .headerBG {
+    flex-direction: column;
+	width: 100%;
+  }
+  
+  .grid-container {
+  grid-template-areas:
+	'turtle'
+	'piper';
+  width: 100%;
+}
+  .responsive {
+  width: 100%;
+  height: auto;
+	}
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    width: 100%;
+  }
+}
+
+.dropdown {
+  float: right;
+  display: block;
+  padding: 14px 20px;
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="navbar">
+  <a href="https://www.tarakemp.net/"><span lang="en">Home</span><span lang="eo">Hejmo</span></a>
+  <a href="https://www.tarakemp.net/about"><span lang="en">About</span><span lang="eo">Pri mi</span></a>
+  <a href="https://www.tarakemp.net/game"><span lang="en">Game</span><span lang="eo">Ludo</span></a>
+  <!--<a href="#" class="right">Link</a>-->
+  <div class="dropdown">
+	  <select id="lang-switch">
+	  <option value="en">en</option>
+	  <option value="eo">eo</option>
+	  </select>
+  </div>
+</div>
+
+<div class="headerBG">
+<div class="headerAbout">
+	<h1><span lang="en"> Welcome to the secret page! </span><span lang="eo"> Bonvenon al la sekreta retpaĝo! </span></h1>
+	<p lang="en"> Here is a subset of my collection of machines. </p>
+	<p lang="eo"> Jen iom da miaj maŝinoj. </p>
+</div>
+</div>
+
+
+<div class="grid-container">
+<div class="AboutIMt">
+<div id="images">
+	<img src="Turtle.jpg" alt="Turtle picture" class="responsive">
+</div>
+</div>
+<div class="AboutIMp">
+<div id="images">
+	<img src="Piper.jpg" alt="Piper picture" class="responsive">
+</div>
+</div>
+</div>
+
+<div class="spacer blue">
+</div>
+
+
+<script>
+	$('[lang="eo"]').hide();
+
+	$('#lang-switch').change(function () {
+	  var lang = $(this).val();
+	  $('[lang]').hide();
+	  switch (lang) {
+		case 'en': 
+		  $('[lang="en"]').show();
+		  break;
+		case 'eo':
+		  $('[lang="eo"]').show();
+		  break;
+		default:
+		  $('[lang="en"]').show();
+	  }
+	});
+</script>
+
+</body>
+</html>
