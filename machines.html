@@ -46,6 +46,11 @@ body {
   float: right; /* Float a link to the right */
 }
 
+/* Secret link */
+.navbar a.secret {
+  color: #333;
+}
+
 /* Change color on hover/mouse-over */
 .navbar a:hover {
   background-color: #ddd; /* Grey background color */
@@ -145,7 +150,7 @@ body {
 .grid-container {
   display: grid;
   grid-template-areas:
-    'turtle piper';
+    'picture text';
   gap: 10px;
   padding: 10px;
   width: 1300px;
@@ -153,8 +158,8 @@ body {
   margin-right: auto;
 }
 
-.AboutIMt {
-  grid-area: turtle;
+.Aboutpic {
+  grid-area: picture;
   padding: 10px 20px 50px 20px; /* some padding */
   display: flex;
   flex: 45%;
@@ -164,8 +169,8 @@ body {
   margin-right: auto;
 }
 
-.AboutIMp {
-  grid-area: piper;
+.Abouttext {
+  grid-area: text;
   padding: 10px 20px 50px 20px; /* some padding */
   display: flex;
   flex: 45%;
@@ -234,6 +239,7 @@ body {
   <a href="https://www.tarakemp.net/"><span lang="en">Home</span><span lang="eo">Hejmo</span></a>
   <a href="https://www.tarakemp.net/about"><span lang="en">About</span><span lang="eo">Pri mi</span></a>
   <a href="https://www.tarakemp.net/game"><span lang="en">Game</span><span lang="eo">Ludo</span></a>
+  <a href="https://www.tarakemp.net/machines" class="Machines"><span lang="en">Secret</span><span lang="eo">Maŝinoj</span></a>
   <!--<a href="#" class="right">Link</a>-->
   <div class="dropdown">
 	  <select id="lang-switch">
@@ -253,15 +259,14 @@ body {
 
 
 <div class="grid-container">
-<div class="AboutIMt">
+<div class="Aboutpic">
 <div id="images">
 	<img src="Turtle.jpg" alt="Turtle picture" class="responsive">
 </div>
 </div>
-<div class="AboutIMp">
-<div id="images">
-	<img src="Piper.jpg" alt="Piper picture" class="responsive">
-</div>
+<div class="Abouttext">
+<p lang="en"> Turtle is a 1968 Morris Mini-Matic. Yes, it's automatic! With the 4-speed auto under the 1000cc engine, Turtle is a little rocket. </p>
+<p lang="eo"> Turtle (Testudo) estas 1968 Morris Mini-Matic. Jes, ĝi estas aŭtomata! </p>
 </div>
 </div>
 
