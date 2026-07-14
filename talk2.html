@@ -88,7 +88,7 @@
 	<div class="container" id="container2"></div>
 	
 	<div class="textContainer">
-        <p>You are on the "Graduation" version of this page. For unlimited puzzles &nbsp;<p>
+        <p>You are on the "Combinatorics 2026" version of this page. For unlimited puzzles &nbsp;<p>
 		<a href="https://www.tarakemp.net/game">click here.</a>
     </div>
 
@@ -161,7 +161,7 @@
             function generateTalkSudoku() {
                 // Placeholder function for generating a random puzzle (9x9)
 				const partition = [2,2];
-				let n = 6;
+				let n = 5;
 				let k = 2;
 				
                 const puzzle = new Array();
@@ -176,34 +176,16 @@
 					}
 					upto.push(sum);
 				}
-				//const subsquares = new Array();
-				//for (let v = 0; v < k; v++) {
-				//	for (let i = 0; i < partition[v]; i++) {
-				//		for (let j = 0; j < partition[v]; j++) {
-				//			puzzle[upto[v]+i][upto[v]+j] = (i+j) % partition[v] + 1;
-				//			puzzle[upto[v]+i][upto[v]+j] += upto[v];
-				//			subsquares.push([upto[v]+i,upto[v]+j]);
-				//		}
-				//	}
-				//}
-				puzzle[0][0] = 19;
-				puzzle[0][1] = 1;
-				puzzle[0][2] = 8;
-				puzzle[0][3] = 11;
-				puzzle[0][4] = 20;
-				puzzle[1][2] = 19;
-				puzzle[1][4] = 14;
-				puzzle[2][1] = 19;
-				puzzle[2][3] = 1;
-				puzzle[2][4] = 8;
-				puzzle[3][0] = 1;
-				puzzle[3][1] = 14;
-				puzzle[3][3] = 20;
-				puzzle[4][0] = 8;
-				puzzle[4][1] = 11;
-				puzzle[4][2] = 14;
-				puzzle[4][3] = 19;
-				
+				const subsquares = new Array();
+				for (let v = 0; v < k; v++) {
+					for (let i = 0; i < partition[v]; i++) {
+						for (let j = 0; j < partition[v]; j++) {
+							puzzle[upto[v]+i][upto[v]+j] = (i+j) % partition[v] + 1;
+							puzzle[upto[v]+i][upto[v]+j] += upto[v];
+							subsquares.push([upto[v]+i,upto[v]+j]);
+						}
+					}
+				}
 				
 				const partition2 = [2,2,1,1];
 				let n2 = 6;
@@ -367,7 +349,7 @@
 
             // Initial puzzle creation
             createSudokuGrid(puzzle1,puzzle1,container);
-			//createSudokuGrid(puzzle2,puzzle2,container2);
+			createSudokuGrid(puzzle2,puzzle2,container2);
 
         });
     </script>
